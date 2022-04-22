@@ -11,12 +11,16 @@ function button() {
   let b = document.getElementsByName(event.target.name);
   let clientX;
   let clientY;
+  let screenX;
+  let screenY;
   b[0].addEventListener('touchstart', function(e) {
   	// Cache the client X/Y coordinates
   	clientX = e.touches[0].clientX;
   	clientY = e.touches[0].clientY;
-    document.getElementById("who").innerHTML = e.target.name + ": x=" + clientX + " y=" + clientY;
-	}, false);  
+	screenX = e.touches[0].screenX;
+	screenY = e.touches[0].screenY;  	  
+    	document.getElementById("who").innerHTML = e.target.name + ": x=" + clientX + " y=" + clientY + " sx=" + screenX + " sy=" + screenY;
+  }, false);  
 }
 </script>
 
