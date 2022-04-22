@@ -2,55 +2,26 @@
 <html>
 <body>
 <style>
-div {
+button {
   margin-top: 20px;
 }
 </style>
 <script>
-function button1() {
-  document.getElementById("who").innerHTML = "button1 is clicked";
-}
-function button2() {
-  document.getElementById("who").innerHTML = "button2 is clicked";
-}
-function button3() {
-  document.getElementById("who").innerHTML = "button3 is clicked";
-}
-function button4() {
-  document.getElementById("who").innerHTML = "button4 is clicked";
-}
-function button5() {
-  document.getElementById("who").innerHTML = "button5 is clicked";
-}
-function button6() {
-  document.getElementById("who").innerHTML = "button6 is clicked";
-}
-function button7() {
-  document.getElementById("who").innerHTML = "button7 is clicked";
-}
-function button8() {
-  document.getElementById("who").innerHTML = "button8 is clicked";
-}
-function button9() {
-  document.getElementById("who").innerHTML = "button9 is clicked";
-}
-function button10() {
-  document.getElementById("who").innerHTML = "button10 is clicked";
+function button() {
+  let b = document.getElementsByName(event.target.name);
+  let clientX;
+  let clientY;
+  b.addEventListener('touchstart', function(e) {
+  	// Cache the client X/Y coordinates
+  	clientX = e.touches[0].clientX;
+  	clientY = e.touches[0].clientY;
+    document.getElementById("who").innerHTML = e.target.name + ": x=" + clientX + " y=" + clientY;
+	}, false);  
 }
 </script>
 
-
 <h1 id="who">guess who</h1>
-<div><button type="button" onclick=button1()>button1</button></div>
-<div></div>
-<div><button type="button" onclick=button2()>button2</button></div>
-<div><button type="button" onclick=button3()>button3</button></div>
-<div><button type="button" onclick=button4()>button4</button></div>
-<div><button type="button" onclick=button5()>button5</button></div>
-<div><button type="button" onclick=button6()>button6</button></div>
-<div><button type="button" onclick=button7()>button7</button></div>
-<div><button type="button" onclick=button8()>button8</button></div>
-<div><button type="button" onclick=button9()>button9</button></div>
-<div><button type="button" onclick=button10()>button10</button></div>
+<button type="button" name="id1" onclick=button()>button1</button>
+<button type="button" name="id2" onclick=button()>button2</button>
 </body>
 </html>
